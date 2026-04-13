@@ -25,7 +25,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class DefaultJanggiServiceTest {
+class JdbcJanggiServiceTest {
 
     TestJdbcTransactionManager transactionManager;
     JanggiService janggiService;
@@ -37,7 +37,7 @@ class DefaultJanggiServiceTest {
         transactionManager = new TestJdbcTransactionManager(new TestJdbcConnectionProvider());
         gameDao = new GameDao(transactionManager);
         pieceDao = new PieceDao(transactionManager);
-        janggiService = new DefaultJanggiService(transactionManager);
+        janggiService = new JdbcJanggiService(transactionManager);
 
         transactionManager.begin();
     }

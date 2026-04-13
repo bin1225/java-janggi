@@ -19,13 +19,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class DefaultJanggiService implements JanggiService {
+public class JdbcJanggiService implements JanggiService {
 
     private final TransactionManager transactionManager;
     private final GameDao gameDao;
     private final PieceDao pieceDao;
 
-    public DefaultJanggiService(TransactionManager transactionManager) {
+    public JdbcJanggiService(TransactionManager transactionManager) {
         this.transactionManager = transactionManager;
         this.gameDao = new GameDao(transactionManager);
         this.pieceDao = new PieceDao(transactionManager);
